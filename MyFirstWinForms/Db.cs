@@ -20,7 +20,10 @@ namespace MyFirstWinForms
 
         public MySqlConnection GetConnection()
         {
+            if (connection.State == System.Data.ConnectionState.Closed)
+                connection.Open();
             return connection;
         }
+
     }
 }

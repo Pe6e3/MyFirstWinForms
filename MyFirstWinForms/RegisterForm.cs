@@ -123,7 +123,6 @@ namespace MyFirstWinForms
             else
                 MessageBox.Show("Аккаунт не был создан");
 
-
             db.CloseConnection();
 
         }

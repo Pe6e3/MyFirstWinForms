@@ -32,6 +32,10 @@
             this.TopPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.userInfoLabel = new System.Windows.Forms.Label();
+            this.ageLabel = new System.Windows.Forms.Label();
+            this.userInfo = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
             this.SuspendLayout();
@@ -39,6 +43,10 @@
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(182)))), ((int)(((byte)(57)))));
+            this.MainPanel.Controls.Add(this.userInfo);
+            this.MainPanel.Controls.Add(this.ageLabel);
+            this.MainPanel.Controls.Add(this.userInfoLabel);
+            this.MainPanel.Controls.Add(this.flowLayoutPanel);
             this.MainPanel.Controls.Add(this.TopPanel);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
@@ -84,6 +92,50 @@
             this.label1.Text = "Главный экран";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // flowLayoutPanel
+            // 
+            this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel.Location = new System.Drawing.Point(44, 140);
+            this.flowLayoutPanel.Name = "flowLayoutPanel";
+            this.flowLayoutPanel.Size = new System.Drawing.Size(258, 280);
+            this.flowLayoutPanel.TabIndex = 1;
+            // 
+            // userInfoLabel
+            // 
+            this.userInfoLabel.AutoSize = true;
+            this.userInfoLabel.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.userInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userInfoLabel.ForeColor = System.Drawing.Color.Firebrick;
+            this.userInfoLabel.Location = new System.Drawing.Point(340, 140);
+            this.userInfoLabel.Name = "userInfoLabel";
+            this.userInfoLabel.Size = new System.Drawing.Size(351, 26);
+            this.userInfoLabel.TabIndex = 2;
+            this.userInfoLabel.Text = "Имя и фамилия пользователя";
+            // 
+            // ageLabel
+            // 
+            this.ageLabel.AutoSize = true;
+            this.ageLabel.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.ageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ageLabel.ForeColor = System.Drawing.Color.Firebrick;
+            this.ageLabel.Location = new System.Drawing.Point(340, 187);
+            this.ageLabel.Name = "ageLabel";
+            this.ageLabel.Size = new System.Drawing.Size(102, 26);
+            this.ageLabel.TabIndex = 3;
+            this.ageLabel.Text = "Возраст";
+            // 
+            // userInfo
+            // 
+            this.userInfo.AutoSize = true;
+            this.userInfo.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.userInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userInfo.ForeColor = System.Drawing.Color.Firebrick;
+            this.userInfo.Location = new System.Drawing.Point(340, 231);
+            this.userInfo.Name = "userInfo";
+            this.userInfo.Size = new System.Drawing.Size(158, 26);
+            this.userInfo.TabIndex = 4;
+            this.userInfo.Text = "Информация";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,6 +147,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -107,5 +160,9 @@
         private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.Label CloseButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        private System.Windows.Forms.Label userInfoLabel;
+        private System.Windows.Forms.Label ageLabel;
+        private System.Windows.Forms.Label userInfo;
     }
 }

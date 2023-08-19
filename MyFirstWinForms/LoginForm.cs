@@ -38,9 +38,6 @@ namespace MyFirstWinForms
             {
                 this.Left += e.X - lastPoint.X;
                 this.Top += e.Y - lastPoint.Y;
-
-
-
             }
         }
 
@@ -73,43 +70,6 @@ namespace MyFirstWinForms
             }
             else
                 MessageBox.Show("Не авторизован");
-
-
-        }
-
-        private void passField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TopPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void RegisterLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

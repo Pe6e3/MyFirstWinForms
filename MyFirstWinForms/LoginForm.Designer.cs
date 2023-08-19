@@ -59,7 +59,6 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(268, 376);
             this.MainPanel.TabIndex = 0;
-            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
             this.MainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseDown);
             this.MainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
             // 
@@ -89,7 +88,6 @@
             this.passField.Size = new System.Drawing.Size(192, 41);
             this.passField.TabIndex = 6;
             this.passField.UseSystemPasswordChar = true;
-            this.passField.TextChanged += new System.EventHandler(this.passField_TextChanged);
             // 
             // loginField
             // 
@@ -99,7 +97,6 @@
             this.loginField.Name = "loginField";
             this.loginField.Size = new System.Drawing.Size(192, 50);
             this.loginField.TabIndex = 4;
-            this.loginField.TextChanged += new System.EventHandler(this.loginField_TextChanged);
             // 
             // TopPanel
             // 
@@ -111,7 +108,6 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(268, 108);
             this.TopPanel.TabIndex = 0;
-            this.TopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopPanel_Paint);
             // 
             // CloseButton
             // 
@@ -139,7 +135,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Авторизация";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox2
             // 
@@ -150,7 +145,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -161,7 +155,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // RegisterLabel
             // 
