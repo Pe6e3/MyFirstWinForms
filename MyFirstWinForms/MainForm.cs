@@ -50,7 +50,7 @@ namespace MyFirstWinForms
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-                MySqlCommand command = new MySqlCommand("SELECT id, login FROM `users`", connection);
+                MySqlCommand command = new MySqlCommand("SELECT id, login, name, surname FROM `users`", connection);
 
                 adapter.SelectCommand = command;
                 adapter.Fill(table);
@@ -61,17 +61,18 @@ namespace MyFirstWinForms
 
                 foreach (DataRow row in table.Rows)
                 {
-                    int id = Convert.ToInt32(row["id"]);
-                    string login = row["login"].ToString();
-                    User user = new User { Id = id, Login = login };
+                    User user = new User();
+                    user.Id = Convert.ToInt32(row["id"]);
+                    user.Login = row["login"].ToString();
+                    user.Name = row["name"].ToString();
+                    user.Surname = row["surname"].ToString();
                     users.Add(user);
                 }
 
                 foreach (User user in users)
                 {
-                    string login = user.Login;
                     Button userButton = new Button();
-                    userButton.Text = login;
+                    userButton.Text = user.Login;
                     userButton.Click += (sender, e) => HandleUserButtonClick(sender, e, user, connection, db);
                     flowLayoutPanel.Controls.Add(userButton);
                 }
@@ -90,11 +91,11 @@ namespace MyFirstWinForms
                 {
                     if (ageInfoReader.Read())
                     {
-                        int age = ageInfoReader.IsDBNull(ageInfoReader.GetOrdinal("age")) ? 0 : ageInfoReader.GetInt32("age");
-                        string info = ageInfoReader.IsDBNull(ageInfoReader.GetOrdinal("info")) ? "" : ageInfoReader.GetString("info");
+                        user.Age = ageInfoReader.IsDBNull(ageInfoReader.GetOrdinal("age")) ? 0 : ageInfoReader.GetInt32("age");
+                        user.Info = ageInfoReader.IsDBNull(ageInfoReader.GetOrdinal("info")) ? "" : ageInfoReader.GetString("info");
 
-                        ageLabel.Text = $"Возраст: {age}";
-                        userInfo.Text = $"Инфо: {info}";
+                        ageLabel.Text = $"Возраст: {user.Age}";
+                        userInfo.Text = $"Инфо: {user.Info}";
                     }
                     else
                     {
@@ -103,7 +104,7 @@ namespace MyFirstWinForms
                         userInfo.Text = $"Инфо не указано";
                     }
 
-                    userInfoLabel.Text = $"Имя: {user.Login}";
+                    userInfoLabel.Text = $"Имя: {user.Name}\nФамилия {user.Surname}";
                 }
             }
         }
