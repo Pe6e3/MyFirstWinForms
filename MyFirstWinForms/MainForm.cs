@@ -1,8 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using WinForms.DAL.Entities;
 
 namespace MyFirstWinForms
 {
@@ -42,91 +44,71 @@ namespace MyFirstWinForms
         private void LoadUserData()
         {
             Db db = new Db();
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users`", db.GetConnection());
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            ClearUserInfoLabels(); // Очищаем информацию на метках
-
-            foreach (DataRow row in table.Rows)
+            using (MySqlConnection connection = db.GetConnection())
             {
-                string login = row["login"].ToString();
-                Button userButton = new Button();
-                userButton.Text = login;
-                userButton.Click += (sender, e) => HandleUserButtonClick(sender, e, login); // Обработчик для клика по кнопке
-                flowLayoutPanel.Controls.Add(userButton); // Добавляем кнопку в FlowLayoutPanel
-            }
-        }
+                DataTable table = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-
-        private void HandleUserButtonClick(object sender, EventArgs e, string login)
-        {
-            Db db = new Db();
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            using (MySqlConnection connection = db.GetConnection()) // Открываем подключение
-            {
-                MySqlCommand command = new MySqlCommand("SELECT id, name, surname FROM `users` WHERE `login` = @uL", connection);
-                command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = login;
+                MySqlCommand command = new MySqlCommand("SELECT id, login FROM `users`", connection);
 
                 adapter.SelectCommand = command;
                 adapter.Fill(table);
-                ClearUserInfoLabels();
 
-                if (table.Rows.Count > 0)
+                ClearUserInfoLabels(); // Очищаем информацию на метках
+
+                List<User> users = new List<User>();
+
+                foreach (DataRow row in table.Rows)
                 {
-                    string name = table.Rows[0]["name"].ToString();
-                    string surname = table.Rows[0]["surname"].ToString();
-                    int id = Convert.ToInt32(table.Rows[0]["id"]);
+                    int id = Convert.ToInt32(row["id"]);
+                    string login = row["login"].ToString();
+                    User user = new User { Id = id, Login = login };
+                    users.Add(user);
+                }
 
-                    MySqlCommand ageInfoCommand = new MySqlCommand("SELECT age, info FROM `userprofiles` WHERE `userid` = @uId", connection);
-                    ageInfoCommand.Parameters.Add("@uId", MySqlDbType.Int32).Value = id;
-
-                    using (MySqlDataReader reader = ageInfoCommand.ExecuteReader())
-                    {
-                        int age = 0;
-                        string info = "";
-                        if (reader.Read())
-                        {
-                            try
-                            {
-                                age = reader.GetInt32("age");
-                            }
-                            catch
-                            {
-                                MessageBox.Show("Не получилось получить возраст");
-                            }
-
-                            try
-                            {
-                                info = reader.GetString("info");
-                            }
-                            catch
-                            {
-                                MessageBox.Show("Не получилось получить инфо");
-                            }
-
-                            ageLabel.Text = $"Возраст: {age}";
-                            userInfo.Text = $"Инфо: {info}";
-                        }
-                        else
-                        {
-                            MessageBox.Show("Возраст и инфор не указаны");
-
-                            ageLabel.Text = $"Возраст не указан";
-                            userInfo.Text = $"Инфо не указано";
-                        }
-                        userInfoLabel.Text = $"Имя: {name}\nФамилия: {surname}";
-                    }
+                foreach (User user in users)
+                {
+                    string login = user.Login;
+                    Button userButton = new Button();
+                    userButton.Text = login;
+                    userButton.Click += (sender, e) => HandleUserButtonClick(sender, e, user, connection, db);
+                    flowLayoutPanel.Controls.Add(userButton);
                 }
             }
-
         }
+
+
+        private void HandleUserButtonClick(object sender, EventArgs e, User user, MySqlConnection connection, Db db)
+        {
+            using (MySqlConnection ageConnection = db.GetConnection())
+            {
+                MySqlCommand ageInfoCommand = new MySqlCommand("SELECT age, info FROM `userprofiles` WHERE `userid` = @uId", ageConnection);
+                ageInfoCommand.Parameters.Add("@uId", MySqlDbType.Int32).Value = user.Id;
+
+                using (MySqlDataReader ageInfoReader = ageInfoCommand.ExecuteReader())
+                {
+                    if (ageInfoReader.Read())
+                    {
+                        int age = ageInfoReader.IsDBNull(ageInfoReader.GetOrdinal("age")) ? 0 : ageInfoReader.GetInt32("age");
+                        string info = ageInfoReader.IsDBNull(ageInfoReader.GetOrdinal("info")) ? "" : ageInfoReader.GetString("info");
+
+                        ageLabel.Text = $"Возраст: {age}";
+                        userInfo.Text = $"Инфо: {info}";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Возраст и инфо не указаны");
+                        ageLabel.Text = $"Возраст не указан";
+                        userInfo.Text = $"Инфо не указано";
+                    }
+
+                    userInfoLabel.Text = $"Имя: {user.Login}";
+                }
+            }
+        }
+
+
 
 
 
