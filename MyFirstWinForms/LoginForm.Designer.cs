@@ -31,21 +31,23 @@
             this.MainPanel = new System.Windows.Forms.Panel();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.passField = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.loginField = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.RegisterLabel = new System.Windows.Forms.LinkLabel();
             this.MainPanel.SuspendLayout();
+            this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.TopPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(182)))), ((int)(((byte)(57)))));
+            this.MainPanel.Controls.Add(this.RegisterLabel);
             this.MainPanel.Controls.Add(this.buttonLogin);
             this.MainPanel.Controls.Add(this.passField);
             this.MainPanel.Controls.Add(this.pictureBox2);
@@ -89,17 +91,6 @@
             this.passField.UseSystemPasswordChar = true;
             this.passField.TextChanged += new System.EventHandler(this.passField_TextChanged);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::MyFirstWinForms.Properties.Resources._lock;
-            this.pictureBox2.Location = new System.Drawing.Point(8, 170);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // loginField
             // 
             this.loginField.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -109,17 +100,6 @@
             this.loginField.Size = new System.Drawing.Size(192, 50);
             this.loginField.TabIndex = 4;
             this.loginField.TextChanged += new System.EventHandler(this.loginField_TextChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::MyFirstWinForms.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 114);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TopPanel
             // 
@@ -161,6 +141,46 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::MyFirstWinForms.Properties.Resources._lock;
+            this.pictureBox2.Location = new System.Drawing.Point(8, 170);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MyFirstWinForms.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 114);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // RegisterLabel
+            // 
+            this.RegisterLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegisterLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.RegisterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RegisterLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RegisterLabel.LinkColor = System.Drawing.Color.White;
+            this.RegisterLabel.Location = new System.Drawing.Point(0, 328);
+            this.RegisterLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.RegisterLabel.Name = "RegisterLabel";
+            this.RegisterLabel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.RegisterLabel.Size = new System.Drawing.Size(268, 48);
+            this.RegisterLabel.TabIndex = 8;
+            this.RegisterLabel.TabStop = true;
+            this.RegisterLabel.Text = "Еще нет аккаунта?";
+            this.RegisterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RegisterLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RegisterLabel_LinkClicked);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,13 +189,14 @@
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,5 +212,6 @@
         private System.Windows.Forms.TextBox loginField;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.LinkLabel RegisterLabel;
     }
 }

@@ -10,8 +10,7 @@ namespace MyFirstWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LoginForm());
-            Application.Run(new RegisterForm());
+            Application.Run(new LoginForm());
         }
     }
 }

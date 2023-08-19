@@ -17,7 +17,7 @@ namespace MyFirstWinForms
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+          Application.Exit();
         }
 
         private void CloseButton_MouseEnter(object sender, EventArgs e)
@@ -106,6 +106,13 @@ namespace MyFirstWinForms
         private void MainPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void RegisterLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
         }
     }
 }
