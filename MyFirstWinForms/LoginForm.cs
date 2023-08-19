@@ -66,7 +66,11 @@ namespace MyFirstWinForms
             adapter.Fill(table);
 
             if (table.Rows.Count > 0)
-                MessageBox.Show("Авторизован");
+            {
+                this.Hide();
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+            }
             else
                 MessageBox.Show("Не авторизован");
 

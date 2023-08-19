@@ -114,7 +114,12 @@ namespace MyFirstWinForms
             db.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
+            {
                 MessageBox.Show("Аккаунт создан");
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
             else
                 MessageBox.Show("Аккаунт не был создан");
 
@@ -219,5 +224,11 @@ namespace MyFirstWinForms
                 return false;
         }
 
+        private void AuthorizeLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }

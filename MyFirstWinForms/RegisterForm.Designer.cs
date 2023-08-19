@@ -39,6 +39,7 @@
             this.TopPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.AuthorizeLabel = new System.Windows.Forms.LinkLabel();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,6 +49,7 @@
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(182)))), ((int)(((byte)(57)))));
+            this.MainPanel.Controls.Add(this.AuthorizeLabel);
             this.MainPanel.Controls.Add(this.userSurnameField);
             this.MainPanel.Controls.Add(this.userNameField);
             this.MainPanel.Controls.Add(this.buttonRegister);
@@ -184,6 +186,24 @@
             this.label1.Text = "Регистрация";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // AuthorizeLabel
+            // 
+            this.AuthorizeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AuthorizeLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AuthorizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AuthorizeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AuthorizeLabel.LinkColor = System.Drawing.Color.White;
+            this.AuthorizeLabel.Location = new System.Drawing.Point(0, 402);
+            this.AuthorizeLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.AuthorizeLabel.Name = "AuthorizeLabel";
+            this.AuthorizeLabel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.AuthorizeLabel.Size = new System.Drawing.Size(800, 48);
+            this.AuthorizeLabel.TabIndex = 10;
+            this.AuthorizeLabel.TabStop = true;
+            this.AuthorizeLabel.Text = "Авторизоваться";
+            this.AuthorizeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AuthorizeLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AuthorizeLabel_LinkClicked);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,5 +237,6 @@
         private System.Windows.Forms.TextBox userSurnameField;
         private System.Windows.Forms.TextBox userNameField;
         private System.Windows.Forms.Label CloseButton;
+        private System.Windows.Forms.LinkLabel AuthorizeLabel;
     }
 }
