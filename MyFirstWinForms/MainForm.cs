@@ -114,6 +114,13 @@ namespace MyFirstWinForms
                             ageLabel.Text = $"Возраст: {age}";
                             userInfo.Text = $"Инфо: {info}";
                         }
+                        else
+                        {
+                            MessageBox.Show("Возраст и инфор не указаны");
+
+                            ageLabel.Text = $"Возраст не указан";
+                            userInfo.Text = $"Инфо не указано";
+                        }
                         userInfoLabel.Text = $"Имя: {name}\nФамилия: {surname}";
                     }
                 }

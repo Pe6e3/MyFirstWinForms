@@ -104,11 +104,11 @@
             // 
             this.userInfoLabel.AutoSize = true;
             this.userInfoLabel.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.userInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userInfoLabel.ForeColor = System.Drawing.Color.Firebrick;
             this.userInfoLabel.Location = new System.Drawing.Point(340, 140);
             this.userInfoLabel.Name = "userInfoLabel";
-            this.userInfoLabel.Size = new System.Drawing.Size(351, 26);
+            this.userInfoLabel.Size = new System.Drawing.Size(420, 31);
             this.userInfoLabel.TabIndex = 2;
             this.userInfoLabel.Text = "Имя и фамилия пользователя";
             // 
@@ -118,7 +118,7 @@
             this.ageLabel.Cursor = System.Windows.Forms.Cursors.Cross;
             this.ageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ageLabel.ForeColor = System.Drawing.Color.Firebrick;
-            this.ageLabel.Location = new System.Drawing.Point(340, 187);
+            this.ageLabel.Location = new System.Drawing.Point(340, 220);
             this.ageLabel.Name = "ageLabel";
             this.ageLabel.Size = new System.Drawing.Size(102, 26);
             this.ageLabel.TabIndex = 3;
@@ -130,7 +130,7 @@
             this.userInfo.Cursor = System.Windows.Forms.Cursors.Cross;
             this.userInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userInfo.ForeColor = System.Drawing.Color.Firebrick;
-            this.userInfo.Location = new System.Drawing.Point(340, 231);
+            this.userInfo.Location = new System.Drawing.Point(340, 246);
             this.userInfo.Name = "userInfo";
             this.userInfo.Size = new System.Drawing.Size(158, 26);
             this.userInfo.TabIndex = 4;
